@@ -1,0 +1,59 @@
+@use 'sass:map';
+@import url(./iconfont.css);
+
+$rate-height:20px;
+$icon-size:16px;
+$rate-height: 20px;
+$rate-font-size: 16px;
+$rate-icon-size: 18px;
+$rate-icon-margin: 6px;
+$rate-icon-color: #c0c4cc;
+$transition-duration: 0.3s;
+
+.wa-rate {
+  height: $rate-height;
+  line-height: 1;
+
+  i {
+    font-style: normal;
+  }
+
+  &:focus,
+  &:active {
+    outline-width: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    font-size: $rate-icon-size;
+    margin-right: $rate-icon-margin;
+    color: $rate-icon-color;
+    transition: $transition-duration;
+
+    &.hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__decimal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  &__text {
+    font-size: $rate-font-size;
+    vertical-align: middle;
+  }
+
+}

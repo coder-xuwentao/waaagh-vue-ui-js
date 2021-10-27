@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.ttf?t=1634464752760') format('truetype');
+}
+[class^='wa-input-number__icon'] {
+  display: inline-block;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wa-input-number__icon-minus:before {
+  content: "\e7fd";
+}
+
+.wa-input-number__icon-plus:before {
+  content: "\e685";
+}
+

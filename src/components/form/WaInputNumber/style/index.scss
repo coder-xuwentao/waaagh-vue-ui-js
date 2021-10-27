@@ -1,0 +1,130 @@
+@use 'sass:math';
+@use 'sass:map';
+@import url(./iconfont.css);
+
+$text-color-regular: #606266;
+$background-color-base: #f5f7fa;
+$height-default:40px;
+$hover-color:#409eff;
+$disabled-color:#e4e7ed;
+$input-number-widths:('medium': 150px, 'small': 130px, 'mini': 110px);
+$input-number-heights:('medium': 36px, 'small': 32px, 'mini': 28px);
+
+.wa-input-number {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  line-height: $height-default - 2;
+
+  $root-selector: &;
+
+  &__decrease,
+  &__increase {
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    width: $height-default;
+    height: auto;
+    text-align: center;
+    background: $background-color-base;
+    color: $text-color-regular;
+    cursor: pointer;
+    font-size: 13px;
+
+    &:hover {
+      color: $hover-color;
+    }
+
+
+  }
+
+  &__increase {
+    right: 1px;
+    border-radius: 0 1px 1px 0;
+    border-left: 1px;
+  }
+
+  &__decrease {
+    left: 1px;
+    border-radius: 1px 0 0 1px;
+    border-right: 1px;
+  }
+
+  &.is-disabled {
+    #{$root-selector} {
+
+      &__decrease,
+      &__increase {
+        border-color: $disabled-color;
+        color: $disabled-color;
+
+        &:hover {
+          color: $disabled-color;
+          cursor: not-allowed;
+        }
+      }
+
+      &__input {
+        cursor: not-allowed;
+        border-color: $disabled-color;
+
+        &:hover {
+          border-color: $disabled-color;
+        }
+      }
+    }
+
+  }
+
+  &__input {
+    display: inline-block;
+    -webkit-appearance: none;
+    padding-left: $height-default + 10;
+    padding-right: $height-default + 10;
+    text-align: center;
+    height: $height-default;
+    line-height: $height-default;
+    outline: none;
+    width: 100%;
+    border: 1px solid #dcdfe6;
+
+    &:hover {
+      border-color: #c0c4cc;
+    }
+
+    &:focus {
+      border-color: $hover-color;
+    }
+  }
+
+  @each $name,
+  $width in $input-number-widths {
+    $height: map.get($input-number-heights, $name);
+
+    &--#{$name} {
+      width: $width;
+      line-height: $height - 2;
+
+      #{$root-selector}__input {
+        height: $height;
+        line-height: $height;
+      }
+
+      #{$root-selector}__decrease,
+      #{$root-selector}__increase {
+        width: $height;
+      }
+    }
+  }
+
+  &--small {
+    [class^='wa-input-number__icon'] {
+      transform: scale(.9);
+    }
+  }
+  &--mini {
+    [class^='wa-input-number__icon'] {
+      transform: scale(.8);
+    }
+  }
+}

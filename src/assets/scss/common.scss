@@ -1,0 +1,13 @@
+// Mixins
+$tablet: 769px !default;
+
+@mixin mobile {
+  @media screen and (max-width: $tablet - 1px) {
+    @content;
+  }
+}
+@mixin mobile-invert {
+  @media screen and (min-width: $tablet - 1px) {
+    @content;
+  }
+}

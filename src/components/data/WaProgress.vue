@@ -1,0 +1,117 @@
+<template>
+  <progress class="wa-progress"></progress>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped lang="scss">
+// Sizes
+$size-small: 0.75rem !default;
+$size-normal: 1rem !default;
+$size-medium: 1.25rem !default;
+$size-large: 1.5rem !default;
+
+$theme-color: hsl(171, 100%, 41%) !default;
+$progress-colors: (
+  'primary': hsl(171, 100%, 41%),
+  'info': hsl(207, 61%,  53%),
+  'warning': hsl(44,  100%, 77%),
+  'danger': hsl(348, 86%, 61%),
+  'dark': hsl(0, 0%, 21%),
+);
+$progress-bar-background-color: #ededed !default;
+$progress-value-background-color: $theme-color !default;
+$progress-border-radius: 9999px !default;
+$progress-indeterminate-duration: 1.5s !default;
+
+.wa-progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: $progress-border-radius;
+  display: block;
+  height: $size-normal;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+
+  &::-webkit-progress-bar {
+    background-color: $progress-bar-background-color;
+  }
+  &::-webkit-progress-value {
+    background-color: $progress-value-background-color;
+  }
+  &::-moz-progress-bar {
+    background-color: $progress-value-background-color;
+  }
+  &::-ms-fill {
+    background-color: $progress-value-background-color;
+    border: none;
+  }
+  // Colors
+  @each $name, $color in $progress-colors {
+    &.is-#{$name} {
+      &::-webkit-progress-value {
+        background-color: $color;
+      }
+      &::-moz-progress-bar {
+        background-color: $color;
+      }
+      &::-ms-fill {
+        background-color: $color;
+      }
+      &:indeterminate {
+        background-image: linear-gradient(to right, $color 30%, $progress-bar-background-color 30%);
+      }
+    }
+  }
+
+  // indeterminate animation
+  &:indeterminate {
+    animation-duration: $progress-indeterminate-duration;
+    animation-iteration-count: infinite;
+    animation-name: moveIndeterminate;
+    animation-timing-function: linear;
+    background-color: $progress-bar-background-color;
+    background-image: linear-gradient(
+      to right,
+      $theme-color 30%,
+      $progress-bar-background-color 30%
+    );
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 150% 150%;
+    &::-webkit-progress-bar {
+      background-color: transparent;
+    }
+    &::-moz-progress-bar {
+      background-color: transparent;
+    }
+    &::-ms-fill {
+      animation-name: none;
+    }
+  }
+
+  // Sizes
+  &.is-small {
+    height: $size-small;
+  }
+  &.is-medium {
+    height: $size-medium;
+  }
+  &.is-large {
+    height: $size-large;
+  }
+
+  @keyframes moveIndeterminate {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+</style>
