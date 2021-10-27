@@ -1,27 +1,29 @@
 <template>
-  <div class="rate-demo-block">
-    <h3>Base</h3>
-    <BaseDemo />
-  </div>
-  <div class="rate-demo-block">
-    <h3>Disabled</h3>
-    <Disabled />
-  </div>
-  <div class="rate-demo-block">
-    <h3>Steps</h3>
-    <Steps />
-  </div>
-  <div class="rate-demo-block">
-    <h3>Step Strictly</h3>
-    <StepStrictly />
-  </div>
-  <div class="rate-demo-block">
-    <h3>Precision</h3>
-    <Precision />
-  </div>
-  <div class="rate-demo-block">
-    <h3>Size</h3>
-    <Size />
+  <div class="wa-snippet-example">
+    <div class="rate-demo-block">
+      <h3>Base</h3>
+      <BaseDemo />
+    </div>
+    <div class="rate-demo-block">
+      <h3>Disabled</h3>
+      <Disabled />
+    </div>
+    <div class="rate-demo-block">
+      <h3>Steps</h3>
+      <Steps />
+    </div>
+    <div class="rate-demo-block">
+      <h3>Step Strictly</h3>
+      <StepStrictly />
+    </div>
+    <div class="rate-demo-block">
+      <h3>Precision</h3>
+      <Precision />
+    </div>
+    <div class="rate-demo-block">
+      <h3>Size</h3>
+      <Size />
+    </div>
   </div>
 </template>
 
@@ -43,10 +45,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wa-snippet-example {
+  margin: 0 auto;
+  max-width: 600px;
+}
 .rate-demo-block {
   margin-bottom: 1.5rem;
   h3 {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 }
 </style>

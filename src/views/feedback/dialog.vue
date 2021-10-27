@@ -77,7 +77,7 @@ $tablet: 769px !default;
   }
   &__body {
     min-height: 7rem;
-    color: hsl(0, 0, 40%);
+    color: hsl(0, 0%, 40%);
   }
   &__footer {
     text-align: right;

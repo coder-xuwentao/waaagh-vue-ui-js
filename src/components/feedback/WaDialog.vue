@@ -102,7 +102,7 @@ $transition-duration: 0.3s;
   &-leave-to {
     opacity: 0;
     .wa-dialog__body {
-      transform: translate(-50%, -50%);
+      margin-top: -2rem;
     }
   }
 
@@ -110,7 +110,7 @@ $transition-duration: 0.3s;
   &-leave-from {
     opacity: 1;
     .wa-dialog__body {
-      transform: translate(-50%, -50%);
+      margin-top: 0rem;
     }
   }
 }

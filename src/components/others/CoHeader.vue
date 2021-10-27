@@ -1,10 +1,10 @@
 <template>
-  <header id="headerNavbar" class="cp-navbar">
-    <router-link to="/" class="cp-navbar__brand">Waaagh UI</router-link>
+  <header id="headerNavbar" class="co-navbar">
+    <router-link to="/" class="co-navbar__brand">Waaagh UI</router-link>
     <div class="wa-menu" @click="showNav">
       <i class="icon-menu"></i>
     </div>
-    <a href="https://github.com/shakexu1" class="cp-navbar__github">
+    <a href="https://github.com/shakexu1" class="co-navbar__github">
       <img src="@/assets/github-fill.png" alt="" />
     </a>
   </header>
@@ -30,7 +30,7 @@ export default defineComponent({
 
 <style lang='scss'>
 @import '@/assets/scss/_init.scss';
-.cp-navbar {
+.co-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
